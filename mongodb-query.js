@@ -11,3 +11,7 @@
 
   //push multiple item in array
   await folderShared.updateOne({ $push: { sharedUsers: { $each: sharedUsers } } }, { new: true });
+
+// insert([{}, {}]) multiple update  // bydefault "ordered" is true
+// ordered:true // if error occure operation will break. because inserting serially
+// ordered:false // if error other will insert after finish throw error
