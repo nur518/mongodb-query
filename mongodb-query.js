@@ -15,3 +15,9 @@
 // insert([{}, {}]) multiple update  // bydefault "ordered" is true
 // ordered:true // if error occure operation will break. because inserting serially
 // ordered:false // if error other will insert after finish throw error
+
+db.users.insert([{_id: 1, name: 'a'}, {_id: 1, name: 'b'}, {_id: 2, name: 'c'}], {"ordered": false})
+// 'a' and 'c' will insert
+
+db.users.insert([{_id: 1, name: 'a'}, {_id: 1, name: 'b'}, {_id: 2, name: 'c'}])
+// only 'a' will insert
